@@ -6,6 +6,8 @@ interface Cache<K : Any, V : Any> {
 
     suspend fun get(key: K): V?
 
+    suspend fun getAll(): Iterable<V>
+
     suspend fun set(key: K, value: V)
 
     suspend fun invalidate(key: K)

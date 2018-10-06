@@ -9,6 +9,8 @@ class CombinedCache<K : Any, V : Any>(
 
     override suspend fun get(key: K): V? = first.get(key) ?: second.get(key)
 
+    override suspend fun getAll(): Iterable<V> = first.getAll() + second.getAll()
+
     override suspend fun set(key: K, value: V) {
         first.set(key, value)
         second.set(key, value)
