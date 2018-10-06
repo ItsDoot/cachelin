@@ -9,7 +9,7 @@ class MapCache<K : Any, V : Any> : Cache<K, V> {
 
     override suspend fun get(key: K): V? = map[key]
 
-    override suspend fun getAll(): Iterable<V> = map.values
+    override suspend fun toMap(): Map<K, V> = map.toMap()
 
     override suspend fun set(key: K, value: V) {
         map[key] = value

@@ -6,7 +6,7 @@ sealed class CacheMsg<out K : Any, out V : Any> {
 
     data class Get<out K : Any, V : Any>(val key: K, val response: CompletableDeferred<in V?>) : CacheMsg<K, V>()
 
-    data class GetAll<out K : Any, V : Any>(val response: CompletableDeferred<in Iterable<V>>) : CacheMsg<K, V>()
+    data class ToMap<K : Any, V : Any>(val response: CompletableDeferred<Map<K, V>>) : CacheMsg<K, V>()
 
     data class Set<out K : Any, out V : Any>(val key: K, val value: V) : CacheMsg<K, V>()
 
